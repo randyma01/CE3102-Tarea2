@@ -1,0 +1,11 @@
+# authors: randy #
+# proj: ce3102-tarea1 #
+
+# misc #
+.idea
+.idea/
+.vscode
+octave-workspace
+**/.DS_Store
+.DS_Store
+# ------------------------- #
