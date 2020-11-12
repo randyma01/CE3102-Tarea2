@@ -43,7 +43,7 @@ function xk = jacobi_mat(A, b)
         Minv = diag(1./d)
 
         % declaracion: tolerancia %
-        tol = 10^-8;
+        tol = 10^-5;
 
         % declaracion: vector de error %
         err = tol + 1;
@@ -54,7 +54,7 @@ function xk = jacobi_mat(A, b)
 
         % iteracion: mientras el error sea mayor que la %
         % tolerancia se ejecuta la siguiente serie      %
-        while(tol < err)
+        while(tol < err && iter < 1000)
             % formula de jacobi %
             xk = (Minv * N * xk) + (Minv * b); 
 

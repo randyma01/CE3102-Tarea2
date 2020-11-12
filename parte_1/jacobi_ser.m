@@ -34,7 +34,7 @@ function xk = jacobi_ser(A, b)
         xk = x0;
 
         % declaracion: tolerancia %
-        tol = 10^-8;
+        tol = 10^-5;
 
         % declaracion: vector de error %
         err = tol + 1;
@@ -42,9 +42,10 @@ function xk = jacobi_ser(A, b)
         % declaracion: numero de iteraciones realizadas %
         iter = 0;
 
-       % iteracion: mientras el error sea mayor que la %
-        % tolerancia se ejecuta la siguiente serie      %
-        while(tol < err)
+        % iteracion: mientras el error sea mayor que la %
+        % tolerancia y las iteraciones realizadas sean  %
+        % menor que 1000, ejecuta la siguiente serie    %
+        while(tol < err && iter < 1000)
             
             % iteracion: recorrido por cada fila de la matriz A %
             for (i = 1 : n)
@@ -73,8 +74,6 @@ function xk = jacobi_ser(A, b)
             ++iter; 
         end
     end
-
-    iter
 end
 
 % A = [5,1 ,1; 1, 5, 1; 1, 1, 5]
