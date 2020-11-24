@@ -1,3 +1,20 @@
+% Esta funcion verifica que una matriz sea del
+% tipo: diagonalmente dominante. 
+%
+% Es decir, el valor absoluto del elemento de
+% la diogonal, es mayor a la suma de los 
+% valores en valor absoluto del resto de la 
+% fila.
+%
+% Firma: 
+%   bool = diag_dom(A,b)
+% 
+% Entradas: 
+%   A = matriz de coeficientes
+%   m = cantidad de filas 
+%            
+% Salida:                           
+%   bool = valor booleano (1 o 0)
 function bool = diag_dom(A, m)
 
     % declaracion: valor resultante %

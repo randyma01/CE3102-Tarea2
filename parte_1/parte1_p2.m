@@ -1,3 +1,25 @@
+% Esta funcion encuentra la solucion a un sistema 
+% de ecuaciones representado mediante la expresion:
+% A * x = b, utilizando el metodo de Jacobi.
+%
+% El metodo de Jacobi utiliza la siguiente formula:
+% -> xk = 1/A(i, i) * (b(i) - suma);   
+% 
+% donde:
+%
+% -> suma = A(i, j) + xk(i)
+%
+% Para el cálculo de la norma, se aplica la formula 
+% Euclidiana o norma 2. 
+%
+% Firma: xk = jacobi(A,b)
+% 
+% Entradas: 
+%   A = matriz de coeficientes
+%   b = vector de valores independientes
+%            
+% Salida:                           
+%   xk = vector de incognitas
 function xk = parte1_p2(A, b)
      % declaracion: vector resultante %
     xk = [];
@@ -75,8 +97,3 @@ function xk = parte1_p2(A, b)
         end
     end
 end
-
-% A = [5,1 ,1; 1, 5, 1; 1, 1, 5]
-% b = [7; 7; 7]
-
-% x = parte1_p2(A, b)
