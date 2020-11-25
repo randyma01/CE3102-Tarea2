@@ -1,22 +1,99 @@
-close all;
-clear;
-clc;
+% Esta funcion encuentra la solucion a un sistema 
+% de ecuaciones representado mediante la expresion:
+% A * x = b, utilizando el metodo de Jacobi.
+%
+% El metodo de Jacobi utiliza la siguiente formula:
+% -> xk = 1/A(i, i) * (b(i) - suma);   
+% 
+% donde:
+%
+% -> suma = A(i, j) + xk(i)
+%
+% Para el cálculo de la norma, se aplica la formula 
+% Euclidiana o norma 2. 
+%
+% Firma: xk = parte1_p3(A,b)
+% 
+% Entradas: 
+%   A = matriz de coeficientes
+%   b = vector de valores independientes
+%            
+% Salida:                           
+%   xk = vector de incognitas
+function xk = parte1_p3(A, b)
+    % declaracion: vector resultante %
+    xk = [];
 
-pkg load parallel
+    % calculo: dimensiones de la matriz A %
+    [m, n] = size(A);
 
-%fun = @(x) x.^2
+    % verificacion: matriz debe ser cuadrada %
+    if (m != n)                    
+        display("La matriz no es cuadrada.")
+        return;
 
-%vector_x = 1:10
+    % verificacion: matriz debe ser invertible %    
+    elseif (det(A) == 0)               
+        display("La matriz no es invertible.")
+        return;
 
-%vector_y = pararrayfun(nproc, fun, vector_x, "Vectorized", true, "ChunksPerProc", 1)
+    % verificacion: la matriz debe ser diagnonalmente dominante %
+    elseif (!diag_dom(A, m))
+        display("La matriz no es diagonalmente dominante.")
+        return;
 
-A = [0.6060168 0.8340029 0.0064574 0.7133187;
-0.6325375 0.0919912 0.5692567 0.7432627;
-0.8292699 0.5136958 0.4171895 0.2530783;
-0.7966113 0.1975865 0.6687064 0.3226548;
-0.0163615 0.2123476 0.9868179 0.1478827];
+    % verificacion: el vector b debe coinicidir con la matriz %
+    elseif (n != size(b, 1))           
+        display("El vector de valores independientes no coincide.")
+        return;
+    
+    % si cumple las conficiones, ejecuta el metodo de jacobi %
+    else
+        % declaracion: vector inicial %
+        x0 = zeros(m, 1);
 
-N = 2;
-[eigenvectors, eigenvalues] = pararrayfun(nproc, 
-                                @(row_idx) eig(reshape(A(row_idx, :), N, N)), 
-                                1:rows(A), "UniformOutput", false)
+        % asignacion: vector resultante %
+        xk = x0;
+
+        % declaracion: tolerancia %
+        tol = 10^-5;
+
+        % declaracion: vector de error %
+        err = tol + 1;
+
+        % declaracion: numero de iteraciones realizadas %
+        iter = 0;
+
+        % iteracion: mientras el error sea mayor que la %
+        % tolerancia y las iteraciones realizadas sean  %
+        % menor que 1000, ejecuta la siguiente serie    %
+        while(tol < err && iter < 1000)
+            
+            % iteracion: recorrido por cada fila de la matriz A %
+            for (i = 1 : n)
+        
+                % declaracion: valor resultante de la serie %
+                suma = 0;
+
+                % iteracion: calculo de la suma %
+                for (j = 1 : m)
+                
+                    % verificacion: si 'i' no es igual a 'j' realice la suma, si no, salto %
+                    if (i != j)
+                        % calculo: de la suma de (Aij * xki + Aij+1 * xk2)%
+                        suma = suma + A(i, j) * xk(j);
+                    end
+                end
+            
+                % calculo: calculando el valor final xk(i) con la formula de la serie%
+                xk(i) = 1/A(i, i) * (b(i) - suma);
+            end 
+
+            % calculo del error absoluto mediante la norma 2 %
+            err = norm(A * xk - b); 
+
+            % aumento del contador de iteraciones realizadas %
+            ++iter; 
+        end
+    end
+end

@@ -8,4 +8,8 @@
 octave-workspace
 **/.DS_Store
 .DS_Store
+
+# files #
+/lab.m
+/parte_1/lab.m
 # ------------------------- #

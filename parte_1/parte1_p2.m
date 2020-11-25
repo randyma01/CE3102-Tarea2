@@ -12,7 +12,7 @@
 % Para el cálculo de la norma, se aplica la formula 
 % Euclidiana o norma 2. 
 %
-% Firma: xk = jacobi(A,b)
+% Firma: xk = parte1_p2(A,b)
 % 
 % Entradas: 
 %   A = matriz de coeficientes
@@ -81,7 +81,7 @@ function xk = parte1_p2(A, b)
                     % verificacion: si 'i' no es igual a 'j' realice la suma, si no, salto %
                     if (i != j)
                         % calculo: de la suma de (Aij * xki + Aij+1 * xk2)%
-                        suma = suma + A(i, j) * xk(j);
+                        suma = suma + A(i, j) * xk(j)
                     end
                 end
             

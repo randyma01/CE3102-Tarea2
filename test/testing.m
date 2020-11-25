@@ -24,10 +24,10 @@ clc;
 %---------------------------------------------------------%
 %----- Prueba 3: Funcion Tridiagonal + Metodo Jacobi -----%
 
-p = q = [1 : 0.1 : 25]';       % vectores p y q %
-m = size(p, 1);                % entero m %
+%p = q = [1 : 0.1 : 25]';       % vectores p y q %
+%m = size(p, 1);                % entero m %
 
-A = tridiagonal(p, q, m);      % matriz A %
-b = ones(242, 1);              % vector de terminos independientes %
+%A = tridiagonal(p, q, m);      % matriz A %
+%b = ones(242, 1);              % vector de terminos independientes %
 
-jacobi = parte1_p2(A, b);       % metodo jacobi %
+%jacobi = parte1_p2(A, b);      % metodo jacobi %
