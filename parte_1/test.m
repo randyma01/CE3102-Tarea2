@@ -10,7 +10,7 @@ clc;
 %mp = size(pp, 1);           % entero mp % 
 
 %Ap = tridiagonal(pp, qp, mp);  % matriz A %
-
+%Ap
 
 %---------------------------------------------------------%
 %------------- Prueba 2: Funcion Tridiagonal -------------%

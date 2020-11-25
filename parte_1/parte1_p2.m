@@ -21,7 +21,7 @@
 % Salida:                           
 %   xk = vector de incognitas
 function xk = parte1_p2(A, b)
-     % declaracion: vector resultante %
+    % declaracion: vector resultante %
     xk = [];
 
     % calculo: dimensiones de la matriz A %
