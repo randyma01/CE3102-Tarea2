@@ -101,7 +101,7 @@ function xk = parte1_p3(A, b)
             err = norm(A * xk - b); 
 
             % aumento del contador de iteraciones realizadas %
-            ++iter;
+            ++iter; 
         end
     end
 end

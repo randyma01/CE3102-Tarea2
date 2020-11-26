@@ -1,3 +1,3 @@
-function y = myfun2(v, z)
-    y = v + z;
+function y = myfun2(vector, zector)
+    y = vector + zector;
 end

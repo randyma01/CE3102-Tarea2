@@ -3,9 +3,6 @@ close all;
 clear;
 clc;
 
-% carga del paquete parallel %
-pkg load parallel
-
 %---------------------------------------------------------------------%
 %------- Script de Ejecucción en Paralelo del Método de Jacobi  ------%
 

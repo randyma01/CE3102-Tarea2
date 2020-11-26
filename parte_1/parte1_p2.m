@@ -1,6 +1,7 @@
 % Esta funcion encuentra la solucion a un sistema 
 % de ecuaciones representado mediante la expresion:
-% A * x = b, utilizando el metodo de Jacobi.
+% A * x = b, utilizando el metodo de Jacobi de for-
+% secuencial. 
 %
 % El metodo de Jacobi utiliza la siguiente formula:
 % -> xk = 1/A(i, i) * (b(i) - suma);   
@@ -81,11 +82,11 @@ function xk = parte1_p2(A, b)
                     % verificacion: si 'i' no es igual a 'j' realice la suma, si no, salto %
                     if (i != j)
                         % calculo: de la suma de (Aij * xki + Aij+1 * xk2)%
-                        suma = suma + A(i, j) * xk(j)
+                        suma = suma + A(i, j) * xk(j);
                     end
                 end
             
-                % calculo: calculando el valor final xk(i) con la formula de la serie%
+                % calculo: calculando secuencialmente del valor final xk(i) con la formula de la serie %
                 xk(i) = 1/A(i, i) * (b(i) - suma);
             end 
 
@@ -93,7 +94,7 @@ function xk = parte1_p2(A, b)
             err = norm(A * xk - b); 
 
             % aumento del contador de iteraciones realizadas %
-            ++iter; 
+            ++iter;
         end
     end
 end
