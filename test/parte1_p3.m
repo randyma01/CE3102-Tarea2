@@ -77,25 +77,7 @@ function xk = parte1_p3(A, b)
         % menor que 1000, ejecuta la siguiente serie    %
         while(tol < err && iter < 1000)
             
-            % iteracion: recorrido por cada fila de la matriz A %
-            for (i = 1 : n)
-        
-                % declaracion: valor resultante de la serie %
-                suma = 0;
-
-                % iteracion: calculo de la suma %
-                for (j = 1 : m)
-                
-                    % verificacion: si 'i' no es igual a 'j' realice la suma, si no, salto %
-                    if (i != j)
-                        % calculo: de la suma de (Aij * xki + Aij+1 * xk2)%
-                        suma = suma + A(i, j) * xk(j);
-                    end
-                end
-            
-                % calculo: calculando paralelamente del valor final xk(i) con la formula de la serie %
-                xk(i) = pararrayfun(nproc, @jacobi, A(i, i), b(i), suma, "Vectorized", true, "ChunksPerProc", 1);
-            end 
+            xk(i) = pararrayfun(nproc, @jacobi, A , b, xk,  "Vectorized", true, "ChunksPerProc", 1); 
 
             % calculo del error absoluto mediante la norma 2 %
             err = norm(A * xk - b); 

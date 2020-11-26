@@ -18,7 +18,7 @@ A = tridiagonal(p, q, m);      % matriz A %
 %---------------------- Paso 2: Jacobi Secuencial --------------------%
 
 m = 242;                       % entero m %
-b = ones(m, 1);                % vector de terminos independientes %
+b = ones(m, 1);                % vector b %
 
 xk = parte1_p2(A, b);          % metodo jacobi secuencial %
 
