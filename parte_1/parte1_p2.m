@@ -59,7 +59,7 @@ function xk = parte1_p2(A, b)
         % declaracion: tolerancia %
         tol = 10^-5;
 
-        % declaracion: vector de error %
+        % declaracion: error %
         err = tol + 1;
 
         % declaracion: numero de iteraciones realizadas %
@@ -90,7 +90,7 @@ function xk = parte1_p2(A, b)
                 xk(i) = 1/A(i, i) * (b(i) - suma);
             end 
 
-            % calculo del error absoluto mediante la norma 2 %
+            % calculo: error mediante la norma 2 %
             err = norm(A * xk - b); 
 
             % aumento del contador de iteraciones realizadas %
