@@ -44,7 +44,7 @@ display(t_p);                  % impresión del tiempo parelelo %
 
 % Calculo de la aceleracion del metodo en paralelo %
 
-s_p = t_s / t_p;           % formula de la aceleracion %
+s_p = t_s / t_p;                % formula de la aceleracion %
 
 display(s_p);                   % impresión de la aceleracion %  
 

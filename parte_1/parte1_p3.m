@@ -83,7 +83,7 @@ function xk = parte1_p3(A, b)
                 % declaracion: valor resultante de la serie %
                 suma = 0;
 
-                % iteracion: calculo de la suma %
+                % iteracion: recorrido por cada columna de la matriz A %
                 for (j = 1 : m)
                 
                     % verificacion: si 'i' no es igual a 'j' realice la suma, si no, salto %
@@ -94,7 +94,7 @@ function xk = parte1_p3(A, b)
                 end
             
                 % calculo: calculando paralelamente del valor final xk(i) con la formula de la serie %
-                xk(i) = pararrayfun(nproc, @jacobi, A(i, i), b(i), suma, "Vectorized", true, "ChunksPerProc", 1);
+                xk(i) = pararrayfun(nproc, @jacobi, A(i, i), b(i), suma, "Vectorized", true, "ChunksPerProc", 10);
             end 
 
             % calculo: error mediante la norma 2 %

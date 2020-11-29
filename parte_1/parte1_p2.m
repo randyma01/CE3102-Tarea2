@@ -76,7 +76,7 @@ function xk = parte1_p2(A, b)
                 % declaracion: valor resultante de la serie %
                 suma = 0;
 
-                % iteracion: calculo de la suma %
+                % iteracion: recorrido por cada columna de la matriz A %
                 for (j = 1 : m)
                 
                     % verificacion: si 'i' no es igual a 'j' realice la suma, si no, salto %
