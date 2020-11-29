@@ -1,8 +1,8 @@
 /**
-* Implementacion del Metodo Iterativo para Aproximar   
-* la PseudoInversa de una Matriz, basado en el Metodo  
-* de la Secante para hallar el cero de una funcion no  
-* lineal, en C++.                               
+* Implementacion del Metodo Iterativo para Aproximar
+* la PseudoInversa de una Matriz, basado en el Metodo
+* de la Secante para hallar el cero de una funcion no
+* lineal, en C++.
 */
 
 // bibliotecas necesarias //
@@ -21,18 +21,18 @@ int main(int argc, char** argv)
 	int columnas = 30;
 
 	// declaracion: matriz A //
-	mat A(filas, columnas); 
+	mat A(filas, columnas);
 
 	// asignacion: llenando la matriz A de ceros //
 	A.fill(0);
-	
+
 	// iteracion: llenando la matriz con la formula: //
 	// A(i, j) = i^2 + j^2							 //
-	for (int i = 0; i < filas; i++) 
+	for (int i = 0; i < filas; i++)
 	{
-		for (int j = 0; j < columnas; j++) 
+		for (int j = 0; j < columnas; j++)
 		{
-			A(i, j) = pow(i, 2) + pow(j, 2);
+			A(i, j) = pow(i + 1, 2) + pow(j + 1, 2);
 		}
 	}
 
@@ -54,9 +54,8 @@ int main(int argc, char** argv)
 	mat xk;
 
 	// iteracion: mientras el error sea mayor que la //
-	// tolerancia, halla la pesudiinversa con la     //
-	// formula dada									 //
-	while (tol < err) 
+	// tolerancia, se calcula la pesudinversa        //
+	while (tol < err)
 	{
 		// calculo: formula de la pseudoinversa //
 		xk = x0 + x1 - x0 * A * x1;
