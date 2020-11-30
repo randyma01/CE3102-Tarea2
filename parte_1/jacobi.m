@@ -9,7 +9,7 @@
 %   b = vector de valores independientes
 %   xk = vector resultante
 %   m = dimension de matriz A
-%   r = vector de los indices de A
+%   r = vector de los indices de la matriz A
 %            
 % Salida:                           
 %   xk = vector
