@@ -71,13 +71,13 @@ function xk = parte1_p2(A, b)
         while(tol < err && iter < 1000)
             
             % iteracion: recorrido por cada fila de la matriz A %
-            for (i = 1 : n)
+            for (i = 1 : m)
         
                 % declaracion: valor resultante de la serie %
                 suma = 0;
 
                 % iteracion: recorrido por cada columna de la matriz A %
-                for (j = 1 : m)
+                for (j = 1 : n)
                 
                     % verificacion: si 'i' no es igual a 'j' realice la suma, si no, salto %
                     if (i != j)

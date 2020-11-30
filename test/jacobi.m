@@ -1,9 +1,12 @@
-function xk = jacobi(A, b, xk)
-    i = 0;
-    i = 0;
-    suma = 0;
-    if (i != j)
-        suma = suma + A * xk;
+function xk = jacobi (A, b, xk, m, r)
+    for( i = 1 : m)
+        suma = 0;
+        for (j = 1 : m)
+            if (i != j)
+                suma = suma + A(i, j) * xk(j);
+            end
+        end
+        
     end
-    xk(i) = 1/A * (b - suma);
+    xk(r) = 1/A(r, r) * (b(r) - suma);
 end

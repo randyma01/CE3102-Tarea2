@@ -1,4 +1,4 @@
-% comandos de liempieza %
+% comandos de limpieza %
 close all;
 clear;
 clc;

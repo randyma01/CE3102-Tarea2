@@ -77,28 +77,15 @@ function xk = parte1_p3(A, b)
         % menor que 1000, ejecuta la siguiente serie    %
         while(tol < err && iter < 1000)
             
-            % iteracion: recorrido por cada fila de la matriz A %
-            for (i = 1 : n)
+            % declaracion: funcion auxiliar del metodo de jacobi    %
+            f_jacobi = @(r) jacobi(A, b, xk, m, r);
+
+            % calculo: del vector resultante utilizando las funciones %
+            % paralelas del paquete 'parallel'                        %
+            xk = pararrayfun(nproc, f_jacobi, 1 : m)';
         
-                % declaracion: valor resultante de la serie %
-                suma = 0;
-
-                % iteracion: recorrido por cada columna de la matriz A %
-                for (j = 1 : m)
-                
-                    % verificacion: si 'i' no es igual a 'j' realice la suma, si no, salto %
-                    if (i != j)
-                        % calculo: de la suma de (Aij * xki + Aij+1 * xk2)%
-                        suma = suma + A(i, j) * xk(j);
-                    end
-                end
-            
-                % calculo: calculando paralelamente del valor final xk(i) con la formula de la serie %
-                xk(i) = pararrayfun(nproc, @jacobi, A(i, i), b(i), suma, "Vectorized", true, "ChunksPerProc", 10);
-            end 
-
             % calculo: error mediante la norma 2 %
-            err = norm(A * xk - b); 
+            err = norm(A * xk - b);  
 
             % aumento del contador de iteraciones realizadas %
             ++iter;
