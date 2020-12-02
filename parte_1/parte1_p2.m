@@ -69,7 +69,10 @@ function xk = parte1_p2(A, b)
         % tolerancia y las iteraciones realizadas sean  %
         % menor que 1000, ejecuta la siguiente serie    %
         while(tol < err && iter < 1000)
+
             
+            y = [];
+
             % iteracion: recorrido por cada fila de la matriz A %
             for (i = 1 : m)
         
@@ -87,8 +90,12 @@ function xk = parte1_p2(A, b)
                 end
             
                 % calculo: calculando secuencialmente del valor final xk(i) con la formula de la serie %
-                xk(i) = 1/A(i, i) * (b(i) - suma);
-            end 
+                aux = 1/A(i, i) * (b(i) - suma);
+                
+                y = [y aux];
+            end
+            
+            xk = y'; 
 
             % calculo: error mediante la norma 2 %
             err = norm(A * xk - b); 

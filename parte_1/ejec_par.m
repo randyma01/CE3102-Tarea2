@@ -22,7 +22,7 @@ b = ones(m, 1);                % vector b %
 
 xk = parte1_p3(A, b);          % metodo jacobi paralelo %
 
-display(xk);                   % impresión del vector resultante %
+%display(xk);                   % impresión del vector resultante %
 
 %---------------------------------------------------------------------%
 %---------------------------------------------------------------------%

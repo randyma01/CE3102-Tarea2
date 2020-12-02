@@ -9,29 +9,26 @@
 %   b = vector de valores independientes
 %   xk = vector resultante
 %   m = dimension de matriz A
-%   r = vector de los indices de la matriz A
+%   r = indices de la matriz A
 %            
 % Salida:                           
-%   xk = vector
-function xk = jacobi (A, b, xk, m, r)
+%   y = vector
+function y = jacobi (A, b, xk, m, r)
+        
+    % declaracion: valor resultante de la serie %
+    suma = 0;
     
-    % iteracion: recorrido por cada fila de la matriz A %
-    for( i = 1 : m)
-        
-        % declaracion: valor resultante de la serie %
-        suma = 0;
-        
-        % iteracion: recorrido por cada columna de la matriz A %
-        for (j = 1 : m)
+    % iteracion: recorrido por cada columna de la matriz A %
+    for (j = 1 : m)
 
-            % verificacion: si 'i' no es igual a 'j' realice la suma, si no, salto %
-            if (i != j)
+        % verificacion: si 'i' no es igual a 'j' realice la suma, si no, salto %
+        if (r != j)
 
-                % calculo: de la suma de (Aij * xki + Aij+1 * xk2)%
-                suma = suma + A(i, j) * xk(j);
-            end
+            % calculo: de la suma de (Aij * xki + Aij+1 * xk2)%
+            suma = suma + A(r, j) * xk(j);
         end
     end
+    
     % calculo: calculando secuencialmente del valor final xk(i) con la formula de la serie %
-    xk(r) = 1/A(r, r) * (b(r) - suma);
+    y = 1/A(r, r) * (b(r) - suma);
 end
